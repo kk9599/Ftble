@@ -2,11 +2,10 @@
   <section>
   <el-row class="container">
     <el-col :span="6">
-      <fieldset>
-        <legend>HCM Login Form</legend>
+      <el-card class="box-card">
        <el-form ref="loginForm" :model="loginForm" label-width="80px">
          <el-form-item label="HCM URL">
-           <el-input placeholder="请输入内容" v-model="loginForm.url">
+           <el-input placeholder="HCM" v-model="loginForm.url">
            <template slot="prepend">Http://</template>
            </el-input>
          </el-form-item>
@@ -24,11 +23,12 @@
            <el-button type="primary" @click="onSubmit">Login</el-button>
           </el-form-item>
        </el-form>
-      </fieldset>
+      </el-card>
+      {{ftble}}
     </el-col>
     <el-col :span="6">
-      <fieldset>
-        <legend>Api Form</legend>
+      <el-card class="box-card">
+
         <el-form :model="apiForm" :label-position="labelPosition" label-width="80px">
           <el-form-item label="Api URL">
             <el-input placeholder="api url" v-model="apiForm.url"></el-input>
@@ -40,21 +40,33 @@
             <el-button type="primary" @click="onApiSend" :loading="buttonLoding">Send</el-button>
           </el-form-item>
         </el-form>
-      </fieldset>
+      </el-card>
     </el-col>
     <el-col :span="12">
-      <el-tabs type="border-card"  v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane label="Responds" name="resp"></el-tab-pane>
-
-        <pre v-if="apiForm.resp">
-        {{apiForm.resp}}
-        </pre>
+      <el-tabs type="border-card"  v-model="activeName">
+        <el-tab-pane label="Responds" name="resp">
+          <pre>
+           {{apiForm.resp}}
+          </pre>
+        </el-tab-pane>
         <el-tab-pane label="Preview" name="preview">
-          <span id="preview"></span>
+           <span id="preview">{{previewJson}}</span>
         </el-tab-pane>
       </el-tabs>
     </el-col>
   </el-row>
+    <el-row>
+      <el-col :span="12">
+        JsonPath<el-input placeholder="jsonPath" v-model="inputPath"></el-input>
+      </el-col>
+      <el-col :span="12">
+      <el-card>
+       <pre>
+        {{jsonPathParse}}
+         </pre>
+      </el-card>
+      </el-col>
+    </el-row>
     </section>
 </template>
 <script>
@@ -62,10 +74,14 @@
   import ElFormItem from "../../node_modules/element-ui/packages/form/src/form-item.vue";
   import ElInput from "../../node_modules/element-ui/packages/input/src/input.vue";
   import Renderjson from '../../node_modules/renderjson/renderjson.js'
+  import JsonPath from 'jsonpath-plus'
   import _ from 'lodash'
   import axios from 'axios';
+  import ElCard from "../../node_modules/element-ui/packages/card/src/main.vue";
+  //import FtableClass from "../utility/Ftable-format"
   export default {
     components: {
+      ElCard,
       ElInput,
       ElFormItem,
       ElCol},
@@ -88,7 +104,7 @@
         buttonLoding:false,
         _viewSate:'',
         activeName: 'resp',
-
+        inputPath:'$.'
       }
     },
     methods:{
@@ -117,46 +133,41 @@
         }).catch((error) => {
           console.log(error)
         })
-      },
-      handleClick(tab,e){
-        let example ={
-          "login": "mojombo",
-          "id": 1,
-          "avatar_url": "https://avatars0.githubusercontent.com/u/1?v=4",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/mojombo",
-          "html_url": "https://github.com/mojombo",
-          "followers_url": "https://api.github.com/users/mojombo/followers",
-          "following_url": "https://api.github.com/users/mojombo/following{/other_user}",
-          "gists_url": "https://api.github.com/users/mojombo/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/mojombo/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/mojombo/subscriptions",
-          "organizations_url": "https://api.github.com/users/mojombo/orgs",
-          "repos_url": "https://api.github.com/users/mojombo/repos",
-          "events_url": "https://api.github.com/users/mojombo/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/mojombo/received_events",
-          "type": "User",
-          "site_admin": false
-        }
-         if(tab.name=='preview'){
-
-           document.getElementById("preview").appendChild(
-             Renderjson
-               .set_icons('▸', '▾')
-               .set_show_to_level(4)
-               (example));
-           }
-         }
       }
+    },// end of method
+    computed:{
+      previewJson(){
+        if(this.apiForm.resp){
+          document.getElementById('preview').appendChild(
+            Renderjson
+              .set_icons('▸', '▾')
+              .set_show_to_level(4)
+              (this.apiForm.resp))
+        }
+       },
+      jsonPathParse(){
+       if(this.apiForm.resp){
 
-
+         var result = JsonPath({json: this.apiForm.resp, path: this.inputPath});
+         return result
+       }
+      },
+      ftble(){
+        if(this.jsonPathParse){
+        console.log(this.jsonPathParse)
+//          var ft = new FtableClass(this.jsonPathParse)
+//          let result = ft.buildTable()
+//          console.log(ft.reformatTable(result) )
+        }
+      }
+    }//end of computed
   }
 </script>
 <style>
   pre {
-    height: 800px;
     overflow-y: scroll;
     text-align: left;
+    height: 800px;
   }
 
 </style>

@@ -14,6 +14,7 @@
     "element-theme-default": "^1.4.12",
     "element-ui": "^2.0.11",
     "jsonpath": "^1.0.0",
+    "jsonpath-plus": "^0.16.0",
     "node-sass": "^4.7.2",
     "renderjson": "https://github.com/caldwell/renderjson.git",
     "vue": "^2.5.2",
