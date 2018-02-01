@@ -33,7 +33,7 @@
               <el-form-item label="Params">
                 <el-input type="textarea" :rows="4" placeholder="param" v-model="apiForm.param"></el-input>
               </el-form-item>
-              <el-form-item label="Json path" v-if="apiForm.showResult">
+              <el-form-item label="Json path">
                 <el-input placeholder="jsonPath" v-model="inputPath"></el-input>
               </el-form-item>
               <el-form-item>
@@ -50,7 +50,7 @@
            {{apiForm.resp}}
           </pre>
           </el-tab-pane>
-          <div v-if ="apiForm.showResult">
+          <div v-show ="apiForm.showResult">
           <el-tab-pane label="Preview" name="preview" >
             <span id="preview">{{previewJson}}</span>
           </el-tab-pane>
@@ -59,6 +59,11 @@
           {{jsonPathParse}}
           </pre>
           </el-tab-pane>
+            <el-tab-pane label="FitTable" name="FitTable">
+              <pre>
+         {{ftble}}
+                </pre>
+            </el-tab-pane>
           </div>
         </el-tabs>
       </el-col>
@@ -75,7 +80,9 @@
   import axios from 'axios';
   import ElCard from "../../node_modules/element-ui/packages/card/src/main.vue";
   import ElContainer from "../../node_modules/element-ui/packages/container/src/main.vue";
-  //import FtableClass from "../utility/Ftable-format"
+  import Ftable from "../utility/Ftable-format"
+  import  jp from'@f5io/jsonpath';
+  import qs from 'qs'
   export default {
     components: {
       ElContainer,
@@ -103,7 +110,8 @@
         buttonLoding: false,
         _viewSate: '',
         activeName: 'resp',
-        inputPath: '$.'
+        inputPath: '$.',
+
       }
     },
     methods: {
@@ -161,18 +169,22 @@
       },
       jsonPathParse() {
         if (this.apiForm.resp) {
-
-          var result = JsonPath({json: this.apiForm.resp, path: this.inputPath});
+         // var result = JsonPath({wrap: false,json: this.apiForm.resp, path: this.inputPath})
+          const result = jp(this.inputPath,this.apiForm.resp);
+          //console.log(typeof result[Symbol.iterator] === 'function')
           return result
         }
       },
       ftble() {
+
         if (this.jsonPathParse) {
-          console.log(this.jsonPathParse)
-//          var ft = new FtableClass(this.jsonPathParse)
-//          let result = ft.buildTable()
-//          console.log(ft.reformatTable(result) )
+           //let _data = qs.parse(this.jsonPathParse)
+
+           let me = new Ftable(this.jsonPathParse)
+           return me.formatResult
         }
+        else
+          return ""
       }
     }//end of computed
   }

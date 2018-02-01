@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=EDGE" /><title>
+	Dayforce HCM
+</title><link rel="shortcut icon" href="Content/Common/images/favicon.ico" /><link id="styles" rel="stylesheet" href="/Content/Common/styles/css?v=xiRgZP6vrj0rYtr2WMXylOX0HoZF1i-BSpXpPYqCUvM1" />
+<script type="text/javascript" src="http://devstatic.dayforce.com/libraries/jquery/1.8.3/jquery.js"></script><script type="text/javascript" src="/Scripts/Libs/bootstrap-modal.js"></script></head>
+<body>
+    <form method="post" action="./mydayforce.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="duo_form">
+<div class="aspNetHidden">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['duo_form'];
+if (!theForm) {
+    theForm = document.duo_form;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZE0llLL_sQWQSWjpd5O8RB-wJzNn-6Zc_dr7H6Ue306uB5fVS19PpPJkr-t-Yq3Gxg2&amp;t=636359780751096864" type="text/javascript"></script>
+
+
+<script src="/WebResource.axd?d=x2nkrMJGXkMELz33nwnakD3ZU9txJTybuvpOlSPTRgSoynZRmw89MQIc5Bh1rl72Z8EcEZH-tmAODpFdp3U1E4t--2zmhBZ3GGiO6z1XmxE1&amp;t=636359780751096864" type="text/javascript"></script>
+<script src="/WebResource.axd?d=JoBkLzP19aTuxbWOhHobYsQ-ofDmjs-B3gDYP6mqBIzFDiPiJM0vK1k3Ee5PtBHrutapBXfQxaSB_RxrXJr5OA2&amp;t=636359780751096864" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B3537425" />
+</div>
+        
+    
+
+
+
+
+
+<div id="topgreenline"></div>
+<div id="content">
+    <div id="login">
+        <div id="loginform" style="left: 100px; top: 120px; height: 288px;">
+            <div id="MainContent_loginUI_spanCompanyName" class="inputField">
+                <span id="MainContent_loginUI_lblCompanyName" class="labelLogin" style="margin-top:-8px">Company</span>
+                <input name="ctl00$MainContent$loginUI$txtCompanyName" type="text" id="txtCompanyName" class="input-large formposition" style="top:-30px;" />
+                <div style="top: 17px; left: 300px; position: absolute;">
+                    <div id="MainContent_loginUI_vCompanyName1" class="popovererror fade right in" style="display: none;"><div class="arrowerror"></div><div class="popovererror-inner"><div class="popover-content"><span class="errortext">No company specified</span></div></div></div>
+                    <div id="MainContent_loginUI_vCompanyName2" class="popovererror fade right in" style="display: none;"><div class="arrowerror"></div><div class="popovererror-inner"><div class="popover-content"><span class="errortext">No company specified</span></div></div></div>
+                    <div id="MainContent_loginUI_vCompanyName3" class="popovererror fade right in" style="display: none;"><div class="arrowerror"></div><div class="popovererror-inner"><div class="popover-content"><span class="errortext">No company specified</span></div></div></div>
+                    <div id="MainContent_loginUI_vCompanyName4" class="popovererror fade right in" style="display: none;"><div class="arrowerror"></div><div class="popovererror-inner"><div class="popover-content"><span class="errortext">No company specified</span></div></div></div>
+                </div>
+            </div>
+
+            <div class="inputField">                
+                    <span id="MainContent_loginUI_lblUserName" class="labelLogin" style="margin-top:-8px">User Name</span>                
+                
+                     
+                
+                    <input name="ctl00$MainContent$loginUI$txtUserName" type="text" id="txtUserName" class="input-large formposition" autocomplete="off" style="display:block" />
+                <div style="top: 17px; left: 300px; position: absolute;">
+					<div id="MainContent_loginUI_vUserName" class="popovererror fade right in" style="display: none;"><div class="arrowerror"></div><div class="popovererror-inner"><div class="popover-content"><span class="errortext">No user name specified</span></div></div></div>
+                </div>
+			</div>
+            
+            <div class="inputField">
+                <span id="MainContent_loginUI_lblPassword" class="labelLogin" style="margin-top:-8px">Password</span>
+                <input name="ctl00$MainContent$loginUI$txtUserPass" type="password" id="txtUserPass" class="input-large formposition" autocomplete="off" style="display:block" />
+                <div style="top: 17px; left: 300px; position: absolute;">
+                    <div id="MainContent_loginUI_vUserPass" class="popovererror fade right in" style="display: none;"><div class="arrowerror"></div><div class="popovererror-inner"><div class="popover-content"><span class="errortext">No password specified</span></div></div></div>
+                </div>
+            </div>
+            
+            <div style="position: relative; margin-top: -15px">
+                <br />
+                <input type="submit" name="ctl00$MainContent$loginUI$cmdLogin" value="Login" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MainContent$loginUI$cmdLogin&quot;, &quot;&quot;, true, &quot;UsernamePassword&quot;, &quot;&quot;, false, false))" id="MainContent_loginUI_cmdLogin" class="btn btn-small formposition long" style="width:225px;" />
+                <div id="divForgotPassword" class="btn-link btn-link:active btn:hover" style="text-align:center; margin-top:10px;">
+                    <a id="MainContent_loginUI_btnForgotPassword" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MainContent$loginUI$btnForgotPassword&quot;, &quot;&quot;, true, &quot;CompanyName&quot;, &quot;&quot;, false, true))">Can't access your account?</a>
+                </div>
+            </div>
+        </div>
+        <div style="top:30%;position:relative;text-align:center;">
+            <div id="MainContent_loginUI_loginErrorMessage" class="popoverloginerror right in" style="margin-left:auto;margin-right:auto;">
+                <div>
+                    <div class="popover-content">
+                        <span id="MainContent_loginUI_lblMessage" class="errortext" style="white-space:normal"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="top:30%;position:relative;text-align:center;">
+            <div id="MainContent_loginUI_loginAnnouncementMessage" class="popoverloginannouncement right in" style="margin-left:auto;margin-right:auto;">
+                <div>
+                    <div class="popover-content">
+                        <span id="MainContent_loginUI_lblAnnouncement" style="white-space:normal"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+	    <div class="footertextleft">
+            <span class="copyrights"><span id="MainContent_loginUI_lblCopyright" title="This product includes software developed by and licensed from third parties.
+Specific copyright and license information can be found in the &quot;Legal Notices&quot;
+chapter of the online help.
+
+Build Information:
+Version: 1.0.0.0">Copyright © 2016 by Ceridian HCM, Inc. All rights reserved. Built on 1/1/0001 12:00:00 AM</span></span>
+            
+        </div>
+	    <div class="footertextright">
+            <span class="copyrights" style="display:inline-block;"><span id="MainContent_loginUI_lblNamespace"></span></span>
+            <div style="display:inline-block;margin-right:15px;color:#6685DE;text-shadow:1px 1px #1B3E9F;font-size:0.8em;">
+                <a id="MainContent_loginUI_linkLegalTermsOfUse" href="/MyDayforce/Legal?src=login&amp;locale=en&amp;target=TermsOfUse" target="_blank" style="color:#6685DE;margin-left:0.8em;">Terms of Use</a>
+                <div style="display:inline-block;margin-left:0.8em;"> | </div>
+                <a id="MainContent_loginUI_linkLegalPrivacyPolicy" href="/MyDayforce/Legal?src=login&amp;locale=en&amp;target=PrivacyPolicy" target="_blank" style="color:#6685DE;margin-left:0.8em;">Privacy Policy</a>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        // script to clear any validation errors as soon as the login button is pressed
+        // dont't worry; if validation doesn't pass, they'll reappear.
+        $(document).ready(function() {
+            $(".btn").click(function() {
+                $(".popoverloginerror").css("display", "none");
+            });
+
+            var customImg = '';
+            var height = '0';
+            var width = '0';
+            if (customImg !== "" && height !=="" && width !=="") {
+                var imageUrl = 'data:image/jpeg;base64,' + customImg;
+                $("#login").css('background-image', 'url(' + imageUrl + ')');
+                if (height !== '442' && width !== '526' ) {
+                    $("#login").css('background-repeat', 'no-repeat');
+                }
+            }
+
+        });
+    
+        function popupEmailHelp(path) {            
+            window.open(path, "_blank", "scrollbars=yes, resizable=yes, top=500, left=500, width=800, height=800");
+        }
+        </script>
+</div>
+
+    <!-- modal 1 reset password -->
+    <div id="modal1ResetPassword" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true" data-backdrop="static">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+        <h3 id="modal1Label"><span id="MainContent_lblResetPassword">Reset Password</span></h3>
+      </div>
+      <div id="MainContent_modal1Body" class="modal-body">
+        <div >
+            <span id="MainContent_lblResetPasswordBanner">To reset your password you must enter your user name or a verified email account that you have registered with us.
+If you have forgotten your user name, you can retrieve it by entering your registered email account.</span>
+            
+            <div style="text-align:center; margin-top:10px">
+                <span id="MainContent_vModal1ResetPassword" style="color:Red;font-weight:bold;visibility:hidden;"></span>
+            </div>
+
+            <div style="margin-left:auto; margin-right:auto;">
+                <table style="margin-left:80px">
+                    <tr>
+                        <td style="width:150px;">
+                            <span id="MainContent_lblUserName">User Name</span>
+                        </td>
+                        <td>
+                            <input name="ctl00$MainContent$txtUserName" type="text" id="MainContent_txtUserName" class="forgotPwInputField" style="margin-top:15px;" />
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <div style="margin-right:20px; text-align:right;">
+                                <b><span id="MainContent_lblOr">Or</span></b>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span id="MainContent_lblEmail">Email</span>
+                        </td>
+                        <td>
+                            <input name="ctl00$MainContent$txtEmail" type="text" id="MainContent_txtEmail" class="forgotPwInputField" style="margin-top:15px;" />
+                        </td>
+                    </tr>            
+                </table>
+             </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true"><span id="MainContent_lblCancel">Cancel</span></button>
+        <input type="submit" name="ctl00$MainContent$btnModal1ResetPasswordSubmit" value="Submit" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MainContent$btnModal1ResetPasswordSubmit&quot;, &quot;&quot;, true, &quot;modal1ValidationGroup&quot;, &quot;&quot;, false, false))" id="MainContent_btnModal1ResetPasswordSubmit" class="bsbtn bsbtn-primary" /> <!-- data-dismiss="modal"-->
+      </div>
+    </div>
+
+    <!-- modal 2 message-->
+    <div id="modal2Message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+        <h3 id="H1"><span id="MainContent_lblResetPassword2">Reset Password</span></h3>
+      </div>
+      <div id="MainContent_modal2MessageBody" class="modal-body"></div>
+      <div class="modal-footer">        
+        <button id="MainContent_btnOk" class="btn" data-dismiss="modal"><span id="MainContent_lblOk">OK</span></button>
+      </div>
+    </div>
+
+    <!-- modal 3 Select Namespace -->
+    <div id="modal3SelectNamespace" class="modal hide fade" style="width:500px" tabindex="-1" role="dialog" aria-labelledby="modal3Label" aria-hidden="true" data-backdrop="static">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+        <h3 id="modal3Label"><span id="MainContent_lblSelectNamespace">Select a Company</span></h3>
+      </div>
+      <div id="MainContent_modal3Body" class="modal-body">
+        <div >
+            <span id="MainContent_lblSelectNamespaceBanner">To continue the login process, you must select one of the listed companies.</span>
+            
+            <div style="margin-left:auto; margin-right:auto;">
+                
+            </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true"><span id="MainContent_lblCancelNamespaceSelection">Cancel</span></button>
+      </div>
+    </div>
+
+    <!-- modal 4 Duo Security Two Factor Authentication -->
+    <div id="modal4TwoFactor" class="modal hide fade" style="width:650px;margin-left:-325px" tabindex="-1" role="dialog" aria-labelledby="modal4Label" aria-hidden="true" data-backdrop="static">
+      <div class="modal-header hide">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+        <h3 id="modal4Label"><span id="MainContent_lblTwoFactorAuthentication">Two Factor Authentication</span></h3>
+      </div>
+      <div id="MainContent_modal4Body" class="modal-body" style="align-content:center">
+        <iframe id="duo_iframe" width="620" height="330" style="border:none;display:block" ></iframe>
+        <input name="ctl00$MainContent$duoPwd" type="hidden" id="MainContent_duoPwd" />
+        <input name="ctl00$MainContent$duoQueryString" type="hidden" id="MainContent_duoQueryString" />
+        <input name="ctl00$MainContent$duoUserNameDisplayText" type="hidden" id="MainContent_duoUserNameDisplayText" />
+      </div>
+      <div class="modal-footer hide">
+      </div>
+    </div>
+
+    <script type="text/javascript">
+        // Clears out the two input text boxes when the Forgot Password modal window closes
+        $('#modal1ResetPassword').on('hidden', function () {
+            $('.forgotPwInputField').val('');
+        });
+
+
+        // generic function to show any modal given the modal's id
+        function showModal(modalName) {
+            $('#' + modalName).modal('show');
+        }
+    </script>    
+
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("MainContent_loginUI_vCompanyName1"), document.getElementById("MainContent_loginUI_vCompanyName2"), document.getElementById("MainContent_loginUI_vCompanyName3"), document.getElementById("MainContent_loginUI_vCompanyName4"), document.getElementById("MainContent_loginUI_vUserName"), document.getElementById("MainContent_loginUI_vUserPass"), document.getElementById("MainContent_vModal1ResetPassword"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var MainContent_loginUI_vCompanyName1 = document.all ? document.all["MainContent_loginUI_vCompanyName1"] : document.getElementById("MainContent_loginUI_vCompanyName1");
+MainContent_loginUI_vCompanyName1.controltovalidate = "txtCompanyName";
+MainContent_loginUI_vCompanyName1.errormessage = "No company specified";
+MainContent_loginUI_vCompanyName1.display = "Dynamic";
+MainContent_loginUI_vCompanyName1.validationGroup = "CompanyName";
+MainContent_loginUI_vCompanyName1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+MainContent_loginUI_vCompanyName1.initialvalue = "";
+var MainContent_loginUI_vCompanyName2 = document.all ? document.all["MainContent_loginUI_vCompanyName2"] : document.getElementById("MainContent_loginUI_vCompanyName2");
+MainContent_loginUI_vCompanyName2.controltovalidate = "txtCompanyName";
+MainContent_loginUI_vCompanyName2.errormessage = "No company specified";
+MainContent_loginUI_vCompanyName2.display = "Dynamic";
+MainContent_loginUI_vCompanyName2.validationGroup = "UsernamePassword";
+MainContent_loginUI_vCompanyName2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+MainContent_loginUI_vCompanyName2.initialvalue = "";
+var MainContent_loginUI_vCompanyName3 = document.all ? document.all["MainContent_loginUI_vCompanyName3"] : document.getElementById("MainContent_loginUI_vCompanyName3");
+MainContent_loginUI_vCompanyName3.controltovalidate = "txtUserName";
+MainContent_loginUI_vCompanyName3.errormessage = "No company specified";
+MainContent_loginUI_vCompanyName3.display = "Dynamic";
+MainContent_loginUI_vCompanyName3.enabled = "False";
+MainContent_loginUI_vCompanyName3.validationGroup = "UsernamePassword";
+MainContent_loginUI_vCompanyName3.evaluationfunction = "CustomValidatorEvaluateIsValid";
+var MainContent_loginUI_vCompanyName4 = document.all ? document.all["MainContent_loginUI_vCompanyName4"] : document.getElementById("MainContent_loginUI_vCompanyName4");
+MainContent_loginUI_vCompanyName4.controltovalidate = "txtUserName";
+MainContent_loginUI_vCompanyName4.errormessage = "No company specified";
+MainContent_loginUI_vCompanyName4.display = "Dynamic";
+MainContent_loginUI_vCompanyName4.enabled = "False";
+MainContent_loginUI_vCompanyName4.validationGroup = "CompanyName";
+MainContent_loginUI_vCompanyName4.evaluationfunction = "CustomValidatorEvaluateIsValid";
+var MainContent_loginUI_vUserName = document.all ? document.all["MainContent_loginUI_vUserName"] : document.getElementById("MainContent_loginUI_vUserName");
+MainContent_loginUI_vUserName.controltovalidate = "txtUserName";
+MainContent_loginUI_vUserName.errormessage = "No user name specified";
+MainContent_loginUI_vUserName.display = "Dynamic";
+MainContent_loginUI_vUserName.validationGroup = "UsernamePassword";
+MainContent_loginUI_vUserName.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+MainContent_loginUI_vUserName.initialvalue = "";
+var MainContent_loginUI_vUserPass = document.all ? document.all["MainContent_loginUI_vUserPass"] : document.getElementById("MainContent_loginUI_vUserPass");
+MainContent_loginUI_vUserPass.controltovalidate = "txtUserPass";
+MainContent_loginUI_vUserPass.errormessage = "No password specified";
+MainContent_loginUI_vUserPass.display = "Dynamic";
+MainContent_loginUI_vUserPass.validationGroup = "UsernamePassword";
+MainContent_loginUI_vUserPass.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+MainContent_loginUI_vUserPass.initialvalue = "";
+var MainContent_vModal1ResetPassword = document.all ? document.all["MainContent_vModal1ResetPassword"] : document.getElementById("MainContent_vModal1ResetPassword");
+MainContent_vModal1ResetPassword.validationGroup = "modal1ValidationGroup";
+MainContent_vModal1ResetPassword.evaluationfunction = "CustomValidatorEvaluateIsValid";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        WebForm_AutoFocus('txtCompanyName');//]]>
+</script>
+</form>
+</body>
+</html>

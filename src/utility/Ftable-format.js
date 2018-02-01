@@ -1,11 +1,12 @@
 import utility from './Utility'
 
-module.exports = class FtableClass {
-        constructor(jsonData) {
-            this._data = jsonData
-        }
+export default class Ftableformat{
 
-        buildRows(jsonData) {
+         constructor(data){
+           this._data = data
+
+         }
+         buildRows(jsonData) {
             var tempRow=[]
             if(typeof jsonData==='object' && jsonData != null && Object.keys(jsonData).length>0){
                 if(Array.isArray(jsonData)){
@@ -112,8 +113,19 @@ module.exports = class FtableClass {
         buildTable() {
             let result =[]
             let jsonData = (typeof this._data === 'string')?JSON.parse(this._data) : this._data
-            result.push(this.buildHeader(jsonData))
-            result.push(this.buildRows(jsonData))
+            console.log(typeof jsonData[Symbol.iterator] === 'function')
+            if(Array.isArray(jsonData) || typeof jsonData[Symbol.iterator] === 'function')
+            {
+              result.push(this.buildHeader(jsonData[0]))
+               for(let item of jsonData){
+                result.push(this.buildRows(item))
+              }
+            }
+
+            else {
+              result.push(this.buildHeader(jsonData))
+              result.push(this.buildRows(jsonData))
+            }
             return result.join("\n")
         }
 
@@ -122,12 +134,18 @@ module.exports = class FtableClass {
             var table = utility.splitStringToTable(str);
             var max_length_per_column;
             max_length_per_column=utility.getMaxLengthPerColumn(table);
-            return table.map((row, row_index)=>{
+            return "\n"+table.map((row, row_index)=>{
                 return '|'+row.map((cell, column_index)=>{
                     var column_length = max_length_per_column[column_index]
                     return utility.padRight(cell,column_length)
                 }).join('|')+'|'
             }).join('\n')+'\n'
+        }
+
+        get formatResult(){
+
+           let str = this.buildTable()
+           return this.reformatTable(str)
         }
 
     }

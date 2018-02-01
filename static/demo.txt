@@ -1,0 +1,72 @@
+from zeep import Client
+import re
+
+# the soap ui api
+testUrl= 'http://localhost:51121/TestService.svc?wsdl'
+coreUrl ='http://localhost:56798/CoreService.svc?wsdl'
+URL="http://localhost:51000/MyDayforce.aspx"
+item_request_headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko)Chrome/36.0.1985.125 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Encoding": "gzip,deflate,sdch",
+        "Accept-Language": "en-US,en;q=0.8"}
+
+client = Client(testUrl)
+result = client.service.Ping()
+
+import requests
+from bs4 import BeautifulSoup
+# the restful api
+#headers={"content-type": "application/xhtml+xml"}
+
+
+clientName='DFLocal01'
+username="cadmin"
+password="1"
+s=requests.Session()
+s.headers.update(item_request_headers)
+#inital get viewstate
+r=s.get(URL)
+soup=BeautifulSoup(r.content,'html.parser')
+VIEWSTATE= soup.find(id="__VIEWSTATE")['value']
+reportGenerator= soup.find('input', {'name': "__VIEWSTATEGENERATOR"})['value']
+
+'''
+construct the login data
+'''
+login_data= {'__EVENTARGUMENT':'',
+             '__EVENTTARGET':'',
+             '__LASTFOCUS':'',
+             '__VIEWSTATE':VIEWSTATE,
+             '__VIEWSTATEGENERATOR':reportGenerator,
+             'ctl00$MainContent$duoPwd':'',
+             'ctl00$MainContent$duoQueryString':'',
+             'ctl00$MainContent$duoUserNameDisplayText':'',
+             'ctl00$MainContent$loginUI$cmdLogin':'Login',
+             'ctl00$MainContent$loginUI$txtCompanyName': clientName,
+             'ctl00$MainContent$loginUI$txtUserName' : username,
+             'ctl00$MainContent$loginUI$txtUserPass' : password ,
+             'ctl00$MainContent$txtEmail':''
+             }
+login_headers = headers={'Content-Type': 'application/x-www-form-urlencoded'}
+#data = ' '.join(map(bin,bytearray(login_data,'utf-8')))
+req = requests.Request('POST',URL, data=login_data, headers=login_headers)
+prepared = req.prepare()
+logintResp = s.post(URL, data=login_data, headers=login_headers)
+# r = r.get(URL)
+# print (r.url)
+print (reportGenerator)
+print(r.headers)
+print (req.data)
+print(logintResp.url)
+
+
+temp = logintResp.url
+regex = r"(^.*(?=([/]Common)))"
+adjaxUrl = re.search(regex, temp)
+
+print(adjaxUrl.group(0))
+frameworkUrl = adjaxUrl.group(0)+"/Framework/Startup/GetUserRoles"
+postHeader ={'Content-Type': 'application/json'}
+data1= {"EmployeeId":"1001"}
+jsonResp = s.post(frameworkUrl,  headers=postHeader)
+print(jsonResp.json())
